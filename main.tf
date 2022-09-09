@@ -22,6 +22,10 @@ resource "azurerm_virtual_machine" "myapp" {
   tags = {
     Billable = "1234567"
     Department = "Sales"
+    HCP-Image-Channel = data.hcp_packer_image.myapp.channel
+    HCP-Iteration-ID = data.hcp_packer_iteration.myapp.ulid
+    HCP-Image-Version = data.hcp_packer_iteration.myapp.incremental_version
+    HCP-Image-Creation = data.hcp_packer_iteration.myapp.created_at
   }
   
   storage_image_reference {
