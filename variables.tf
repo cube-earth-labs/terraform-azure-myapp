@@ -41,3 +41,8 @@ variable "vm_size" {
   description = "Specifies the size of the virtual machine."
   default     = "Standard_B1s"
 }
+
+variable "iteration_id" {
+  description = "HCP Packer Iteration ID"
+  default = "null"
+}
