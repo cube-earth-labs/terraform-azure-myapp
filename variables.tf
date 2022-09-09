@@ -15,11 +15,11 @@ variable "environment" {
 }
 
 variable "admin_username" {
-  description = "Administrator user name for linux and mysql"
+  description = "Administrator user name for linux"
 }
 
 variable "admin_password" {
-  description = "Administrator password for linux and mysql"
+  description = "Administrator password for linux"
 }
 
 variable "location" {
@@ -44,5 +44,5 @@ variable "vm_size" {
 
 variable "iteration_id" {
   description = "HCP Packer Iteration ID"
-  default = "null"
+  default = null
 }
