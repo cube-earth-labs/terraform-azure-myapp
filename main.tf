@@ -20,14 +20,14 @@ resource "azurerm_virtual_machine" "myapp" {
   delete_os_disk_on_termination = "true"
 
   tags = {
-    Billable = "1234567"
-    Department = "Sales"
-    HCP-Image-Channel = data.hcp_packer_image.myapp.channel
-    HCP-Iteration-ID = data.hcp_packer_iteration.myapp.ulid
-    HCP-Image-Version = data.hcp_packer_iteration.myapp.incremental_version
+    Billable           = "1234567"
+    Department         = "Development"
+    HCP-Image-Channel  = data.hcp_packer_image.myapp.channel
+    HCP-Iteration-ID   = data.hcp_packer_iteration.myapp.ulid
+    HCP-Image-Version  = data.hcp_packer_iteration.myapp.incremental_version
     HCP-Image-Creation = data.hcp_packer_iteration.myapp.created_at
   }
-  
+
   storage_image_reference {
     id = data.hcp_packer_image.myapp.cloud_image_id
   }
@@ -43,7 +43,7 @@ resource "azurerm_virtual_machine" "myapp" {
     computer_name  = var.prefix
     admin_username = var.admin_username
     admin_password = var.admin_password
-    custom_data = file("${path.module}/scripts/userdata-server.sh")
+    custom_data    = file("${path.module}/scripts/userdata-server.sh")
   }
 
   os_profile_linux_config {
